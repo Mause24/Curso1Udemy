@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba 1 JavaScript</title>
+</head>
+<body>
+
+    <!-- 
+    =============================================
+    INICIO DE VARIABLES DOM
+    =============================================
+    -->
+    <div class="cajas" id="caja"></div>
+    <div class="cajas" id="caja2"></div>
+    <div class="cajas" id="caja3"></div>
+    <div class="cajas" id="caja4"></div>
+    <!-- 
+    =============================================
+    FIN DE VARIABLES DOM
+    =============================================
+    -->
+    <!-- 
+    =============================================
+    INICIO DE EVENTOS
+    =============================================
+    -->
+    <button style="display: block; margin-top: 10px;" onclick={cambiarColor()}>Evento 1</button>
+    <button id="boton">Evento 2</button>
+
+    <div id="recuadro" style="width: 200px;height: 200px;background: greenyellow;margin: 5px;transition: all ease 0.5s;"></div>
+    <!-- 
+    =============================================
+    FIN DE EVENTOS
+    =============================================
+    -->
+
+     <!-- 
+    =============================================
+    INICIO DE INTERVALOS Y RETARDOS DE TIEMPO
+    =============================================
+    -->
+
+        <p id="tiempo">0</p>
+        
+        <!-- 
+            =============================================
+            FIN DE INTERVALOS Y RETARDOS DE TIEMPO
+    =============================================
+-->
+
+<!-- 
+    =============================================
+    INICIO DE NUMEROS ALEATORIOS
+    =============================================
+-->
+
+        <p id="numeroAleatorio">0</p>
+      <!-- 
+    =============================================
+    FIN DE NUMEROS ALEATORIOS
+    =============================================
+    -->
+
+    <script src="JS/02.variables.js"></script>
+    <script src="JS/03.funciones.js"></script>
+    <script src="JS/04.condiciones.js"></script>
+    <script src="JS/05.ciclos.js"></script>
+    <script src="JS/06.eventos.js"></script>
+    <script src="JS/07.intervalos-retardos-tiempo.js"></script>
+    <script src="JS/08.numeros-aleatorios.js"></script>
+
+    <script>
+
+        var nombre= "Juan";
+        var edad= 25;
+        console.log("Su nombre es "+nombre+" y tiene "+edad+" años.");
+
+    </script>
+</body>
+</html>
