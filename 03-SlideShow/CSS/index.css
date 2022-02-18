@@ -16,15 +16,26 @@ ul,li,a{
     list-style: none;
     text-decoration: none;
 }
+
+ul li{
+    display: flex;
+    align-items: center;
+}
+
 ul li a{
     display: block;
     background: rgb(59, 59, 59);
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 100%;
     padding: 10px;
     color: white;
     font-weight: bold;
     transition: all ease 0.35s;
-    
+    font-size: 14px;
+
 }
 ul li a:hover{
     background: rgb(87, 87, 87);
@@ -52,14 +63,22 @@ ul li a:active{
     text-align: center;
 }
 
+.espacio{
+    height: 100%;
+}
+
+nav{
+    height: 100%;
+}
 
 nav ul{
+    display: flex;
+    width: 100%;;
     height: 100%;
 }
 
 .navDecoration{
-    height: 100px;
-    width: 100%;
+    height: 100%;
     border-left: 1px solid rgba(0, 0, 0, 0.466);
     transition: all ease 0.2s;
     cursor: pointer;
@@ -71,10 +90,7 @@ nav ul{
 
 /* HEADER */
 
-ul li a{
-    margin: 30% 0;
-    font-size: 14px;
-}
+
 #logotipo img{
     width: 100%;
 }
@@ -95,8 +111,62 @@ ul li a{
     height: auto;
     width: 400%;
     clear: both;
-    display: table;
+    display: flex;
+    flex-direction: row;
+    transition: left ease 1s;
 }
+
+.container__progress__bar{
+    position: absolute;
+    top: 5px;
+    right: 45px;
+    width: 40px;
+    height: 40px;
+    z-index: 3;
+}
+.progress__bar{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 8px solid rgba(206, 206, 206, 0.596);
+    border-radius: 50%;
+}
+.progress__bar svg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.circle{
+    fill: none;
+    stroke: white;
+    stroke-width: 8px;
+    stroke-dasharray: 94;
+    stroke-dashoffset: 94;
+}
+
+.animationProgress{
+    animation: filing 5s linear forwards;
+}
+
+@keyframes filing {
+    99%{
+        stroke-dashoffset: 0;
+    }
+    100%{
+        stroke-dashoffset: 94;
+    }
+}
+
+
+
+/* .animationSlide{
+    animation: slide 30s infinite forwards;
+} */
+
+
 #slide ul li{
     position: relative;
     float: left;
@@ -124,9 +194,12 @@ ul li a{
     text-shadow: 0 0 7px #333;
     transition: all ease .4s;
 }
-#slide #paginacion li:first-child{
-    opacity: 1;
+
+.selected{
+    opacity: 1 !important;
 }
+
+
 #slide #paginacion li:hover{
     opacity: 1;
     transform: scale(1.1);
@@ -147,8 +220,13 @@ ul li a{
     width: 3%;
     display: flex;
     align-items: center;
-    z-index: 2;
+    z-index: 3;
     transition: all linear 0.3s;
+}
+#slide .flechas span{
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
 }
 #slide .flechas:hover{
     background-color: rgba(255, 255, 255, 0.418);
@@ -187,6 +265,36 @@ ul li a{
     padding-bottom: 10px;
 }
 
+@keyframes slide{
+    0%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-25%);
+    }
+    45%{
+        transform: translateX(-25%);
+    }
+    50%{
+        transform: translateX(-50%);
+    }
+    70%{
+        transform: translateX(-50%);
+    }
+    75%{
+        transform: translateX(-75%);
+    }
+    95%{
+        transform: translateX(-75%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
 
 
 @media(min-width:1200px){
@@ -213,7 +321,6 @@ ul li a{
     .col-lg-0{display: none;}
 
     ul li a{
-        margin: 30% 0;
         font-size: 14px;
     }
     #logotipo img{
@@ -244,7 +351,6 @@ ul li a{
     .col-md-0{display: none;}
 
     ul li a{
-        margin: 30% 0;
         font-size: 14px;
     }
     #logotipo img{
@@ -276,11 +382,26 @@ ul li a{
     .col-sm-0{display: none;}
 
     ul li a{
-        margin: 28% 0;
-        font-size: 14px;
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+    #logotipo {
+       margin: 15px 0;
+    }
+    #slide ul li .texto_slide{
+        font-size: 0.7em;
+        
     }
     #logotipo img{
         width: 100%;
+    }
+
+    #slide #paginacion li{
+        font-size: 0.8em;
+    }
+    .container__progress__bar{
+        transform: scale(0.8);
+        right: 20px;
     }
 
 }
@@ -309,12 +430,16 @@ ul li a{
     .col-xs-0{display: none;}
 
     ul li a{
-        margin: 0;
         font-size: 12px;
         border-bottom: 1px solid #444;
     }
     #logotipo img{
         width: 50%;
+    }
+    nav ul{
+        flex-direction: column;
+        max-height: 100px;
+        overflow-y: auto;
     }
 
     /* SLIDE */
@@ -330,11 +455,16 @@ ul li a{
     }
 
     #slide .flechas{
-        font-size: 1em;
-        width: 5%;
+        font-size: 1.5rem;
+        width: 4%;
     }
 
     #slide #paginacion li{
-        font-size: 1em;
+        font-size: 0.7rem;
     }
+    .container__progress__bar{
+        transform: scale(0.7);
+        right: 20px;
+    }
+
 }
